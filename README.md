@@ -1,52 +1,26 @@
-\# Open WebUI - Script di Aggiornamento Automatico
+# Open WebUI - Automatic Update Script
 
+Simple and safe Bash script to update **Open WebUI** (https://openwebui.com) to the latest version while keeping all your data persistent — no need to rewrite the long `docker run` command every time.
 
+Perfect for anyone running Open WebUI with Ollama on a home server (e.g., mini-PC, Raspberry Pi, NAS, etc.).
 
-Script Bash semplice e sicuro per aggiornare all'ultima versione \*\*Open WebUI\*\* (https://openwebui.com) mantenendo i dati persistenti e senza dover riscrivere ogni volta il comando `docker run`.
+## Features
 
+- Stops and removes the existing `open-webui` container
+- Deletes the old Docker image to free up disk space
+- Pulls the latest version of `ghcr.io/open-webui/open-webui:main`
+- Restarts the container with the exact same configuration as before
+- Preserves all your data (downloaded models, chats, settings) thanks to the `open-webui` Docker volume
 
+## Prerequisites
 
-Ideale per chi usa Open WebUI in combinazione con Ollama su un server domestico (es. mini-PC, Raspberry Pi, NAS, ecc.).
+- Docker installed and running
+- An Ollama instance running (in this example at `http://192.168.178.27:11434`)
+- Port 3000 free on your server (or change it in the script if needed)
 
+## Usage
 
-
-\## Funzionalità
-
-
-
-\- Ferma e rimuove il container esistente `open-webui`
-
-\- Elimina la vecchia immagine Docker per liberare spazio
-
-\- Scarica l'ultima versione di `ghcr.io/open-webui/open-webui:main`
-
-\- Riavvia il container con la stessa configurazione precedente
-
-\- Mantiene tutti i dati (modelli scaricati, chat, impostazioni) grazie al volume Docker `open-webui`
-
-
-
-\## Prerequisiti
-
-
-
-\- Docker installato e funzionante
-
-\- Un'istanza di Ollama in esecuzione (nel mio caso all'indirizzo `http://192.168.178.27:11434`)
-
-\- Porta 3000 libera sul tuo server (o cambiala nel comando se necessario)
-
-
-
-\## Utilizzo
-
-
-
-1\. Salva lo script con il nome che preferisci, ad esempio:
-
-
+1. Save the script with your preferred name, for example:
 
 ```bash
-
-curl -o update-openwebui.sh https://raw.githubusercontent.com/tuo-utente/tuo-repo/main/update-openwebui.sh
-
+curl -o update-openwebui.sh https://raw.githubusercontent.com/your-username/your-repo/main/update-openwebui.sh
